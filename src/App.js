@@ -48,7 +48,8 @@ function App() {
 
   // Обработка выбора карты
   const handleChoice = (card) => {
-    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+    if (!choiceTwo && choiceOne && card.id === choiceOne.id) return;
+    choiceOne   ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
   // Сравнение двух выбранных карт
